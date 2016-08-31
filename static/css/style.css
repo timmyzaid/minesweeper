@@ -1,0 +1,53 @@
+.minesweeper {
+    margin: 0 auto;
+    background-color: lightgray;
+    border-collapse: collapse;
+    display: table;
+}
+
+.row {
+    display: table-row;
+}
+
+.board {
+    display: table-cell;
+    width: 25px;
+    height: 25px;
+    border: 1px solid dimgrey;
+    text-align: center;
+    vertical-align: bottom;
+    position: relative;
+    cursor: default;
+}
+
+.number.bomb {
+    background-color: red;
+}
+
+.overlay.marked::before {
+    content: '?';
+}
+
+.number {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.overlay {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/overlay.png);
+    top: -1px;
+    left: -1px;
+    border: 1px solid dimgrey;
+    pointer-events: none;
+}

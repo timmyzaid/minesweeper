@@ -1,0 +1,4 @@
+*.ts
+build/**
+.vscode/**
+node_modules/**

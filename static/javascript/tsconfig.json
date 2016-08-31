@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es6",
+        "outFile": "build/app.js"
+    },
+    "files": [
+        "load.ts",
+        "minesweeper.ts"
+    ]
+}
