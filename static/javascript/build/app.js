@@ -85,6 +85,7 @@ class BoardElement {
         else
             this._number.textContent = this.content.toString();
         this._overlay.style.visibility = 'hidden';
+        this._minesweeper.reportBlank();
     }
     _handleRightClick(event) {
         event.preventDefault();
@@ -128,6 +129,7 @@ class Minesweeper {
         this._interval = 0;
         this.mouseDown = false;
         this.isRunning = false;
+        this._numBlanks = (this._x * this._y) - this._numBombs;
         this._element = document.getElementsByClassName('minesweeper')[0];
         this._clock = document.createElement('div');
         this._clock.textContent = '0';
@@ -137,6 +139,7 @@ class Minesweeper {
         this._printBoard();
     }
     run(clickX, clickY) {
+        this._numBlanks = (this._x * this._y) - this._numBombs;
         this.isRunning = true;
         this._generateBoard(clickX, clickY);
         let tick = 0;
@@ -153,6 +156,13 @@ class Minesweeper {
             for (let x = 0; x < this._x; x++) {
                 this._boardElements[x][y].reset();
             }
+        }
+    }
+    reportBlank() {
+        this._numBlanks--;
+        if (this._numBlanks === 0) {
+            console.log("you won?!");
+            this.end();
         }
     }
     _zeroBombArray() {
